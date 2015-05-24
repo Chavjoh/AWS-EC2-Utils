@@ -3,7 +3,6 @@
 ############
 
 template/
-**/template/
 config.properties
 *.pem
 

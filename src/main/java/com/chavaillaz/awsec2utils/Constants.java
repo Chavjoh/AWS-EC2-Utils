@@ -18,7 +18,7 @@ public class Constants {
 	public static final String AWS_SECURITY_GROUP = "AWS-EC2-Utils";
 	public static final String AWS_SECURITY_GROUP_DESCRIPTION = "Default group used by AWS-EC2-Utils.";
 	
-	public static final String VM_FOLDER = "vm/";
+	public static final String VM_FOLDER = "template/";
 	public static final String VM_EXTENSION = PROPERTIES_EXTENSION;
 	
 	public static final String TAG_KEY = "AWS-EC2-Utils-Key";

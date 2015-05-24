@@ -2,7 +2,8 @@
 # SPECIFIC #
 ############
 
-vm/
+template/
+**/template/
 config.properties
 *.pem
 

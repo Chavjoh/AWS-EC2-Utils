@@ -24,7 +24,7 @@
 					<programs>
 						<program>
 							<mainClass>com.chavaillaz.awsec2utils.App</mainClass>
-							<id>app</id>
+							<id>vm</id>
 						</program>
 					</programs>
 				</configuration>

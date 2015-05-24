@@ -39,9 +39,11 @@ public class ListService extends AuthService_A implements ListService_I {
 		List<VmTemplate> listTemplate = new ArrayList<VmTemplate>();
 		
 		File folder = new File(Constants.VM_FOLDER);
-		for (File fileEntry : folder.listFiles()) {
-			String vmId = FilenameUtils.getBaseName(fileEntry.getPath());
-			listTemplate.add(VmTemplate.getTemplate(vmId));
+		if (folder.exists() && folder.isDirectory()) {
+			for (File fileEntry : folder.listFiles()) {
+				String vmId = FilenameUtils.getBaseName(fileEntry.getPath());
+				listTemplate.add(VmTemplate.getTemplate(vmId));
+			}
 		}
 		
 		return listTemplate;

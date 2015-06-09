@@ -65,5 +65,25 @@ public class VmState {
 	public static boolean isUnstableState(Integer code) {
 		return code == PENDING_CODE || code == SHUTTING_DOWN_CODE || code == STOPPING_CODE;
 	}
+	
+	public static Integer getSignificantNumber(Instance instance) {
+		if (instance == null) return 100; // Least significant
+		switch (instance.getState().getCode()) {
+			case 0:
+				return 0;
+			case 16:
+				return 1;
+			case 32:
+				return 4;
+			case 48:
+				return 5;
+			case 64:
+				return 2;
+			case 80:
+				return 3;
+			default:
+				return 100; // Least significant
+		}
+	}
 
 }

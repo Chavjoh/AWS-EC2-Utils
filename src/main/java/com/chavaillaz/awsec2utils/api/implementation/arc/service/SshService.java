@@ -36,7 +36,7 @@ public class SshService extends AuthService_A implements SshService_I {
 		logger.info("Getting instance information ...");
 		Instance instance = AwsService.getInstance()
 				.getDescribeInstanceService(aws)
-				.getFirstInstance(new Tag(Constants.TAG_KEY, vmId));
+				.getFirstSignificantInstance(new Tag(Constants.TAG_KEY, vmId));
 
 		if (instance == null || !VmState.isRunning(instance)) {
 			logger.error("Instance is not running ...");

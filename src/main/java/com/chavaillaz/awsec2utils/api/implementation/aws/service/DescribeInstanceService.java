@@ -12,6 +12,7 @@ import com.amazonaws.services.ec2.model.Reservation;
 import com.amazonaws.services.ec2.model.Tag;
 import com.chavaillaz.awsec2utils.api.implementation.common.AuthService_A;
 import com.chavaillaz.awsec2utils.api.specification.aws.service.DescribeInstanceService_I;
+import com.chavaillaz.awsec2utils.utils.VmState;
 
 /**
  * Implementation of {@link DescribeInstanceService_I}
@@ -25,13 +26,34 @@ public class DescribeInstanceService extends AuthService_A implements DescribeIn
 	}
 
 	public Instance getFirstInstance(Tag tag) {
-		List<Instance> listInstance = getInstance(tag);
-		
-		for (Instance instance : listInstance) {
+		for (Instance instance : getInstance(tag)) {
 			return instance;
 		}
 		
 		return null;
+	}
+	
+	public Instance getFirstRunningInstance(Tag tag) {
+		for (Instance instance : getInstance(tag)) {
+			if (VmState.isRunning(instance)) {
+				return instance;
+			}
+		}
+		
+		return null;
+	}
+	
+	public Instance getFirstSignificantInstance(Tag tag) {
+		Instance significantInstance = null;
+		
+		for (Instance instance : getInstance(tag)) {
+			if (significantInstance == null || 
+					VmState.getSignificantNumber(instance) < VmState.getSignificantNumber(significantInstance)) {
+				significantInstance = instance;
+			} 
+		}
+		
+		return significantInstance;
 	}
 
 	public List<Instance> getInstance(Tag tag) {

@@ -40,7 +40,7 @@ public class StartService extends AuthService_A implements StartService_I {
 		}
 		
 		logger.info("Getting instance state information ...");
-		Instance instance = AwsService.getInstance().getDescribeInstanceService(aws).getFirstInstance(new Tag(Constants.TAG_KEY, vmId));
+		Instance instance = AwsService.getInstance().getDescribeInstanceService(aws).getFirstSignificantInstance(new Tag(Constants.TAG_KEY, vmId));
 		
 		if (VmState.isUnstableState(instance)) {
 			logger.error("Instance state is changing. Please retry in a few seconds ...");

@@ -40,7 +40,7 @@ public class TerminateService extends AuthService_A implements TerminateService_
 		}
 		
 		DescribeInstanceService_I describeInstanceService = AwsService.getInstance().getDescribeInstanceService(aws);
-		Instance instance = describeInstanceService.getFirstInstance(new Tag(Constants.TAG_KEY, vmId));
+		Instance instance = describeInstanceService.getFirstSignificantInstance(new Tag(Constants.TAG_KEY, vmId));
 		
 		if (instance == null) {
 			logger.error("No instance is presently running or stopped with this template.");
@@ -53,7 +53,7 @@ public class TerminateService extends AuthService_A implements TerminateService_
 		
 		while (VmState.isUnstableState(instance)) {
 			Thread.sleep(1000);
-			instance = describeInstanceService.getFirstInstance(new Tag(Constants.TAG_KEY, vmId));
+			instance = describeInstanceService.getFirstSignificantInstance(new Tag(Constants.TAG_KEY, vmId));
 		}
 		
 		if (VmState.isTerminated(instance)) {

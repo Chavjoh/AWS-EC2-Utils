@@ -21,6 +21,22 @@ public interface DescribeInstanceService_I {
 	public Instance getFirstInstance(Tag tag);
 	
 	/**
+	 * Get first running instance with a specific tag.
+	 * 
+	 * @param tag Tag to search
+	 * @return First instance found with the indicated tag
+	 */
+	public Instance getFirstRunningInstance(Tag tag);
+	
+	/**
+	 * Get first significant instance with a specific tag.
+	 * 
+	 * @param tag Tag to search
+	 * @return First instance found with the indicated tag
+	 */
+	public Instance getFirstSignificantInstance(Tag tag);
+	
+	/**
 	 * Get all instances with a specific tag.
 	 * 
 	 * @param tag Tag to search

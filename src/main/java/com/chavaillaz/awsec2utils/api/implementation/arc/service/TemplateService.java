@@ -48,7 +48,7 @@ public class TemplateService extends AuthService_A implements TemplateService_I 
 		}
 		
 		logger.info("Getting instance state on Amazon ...");
-		Instance instance = AwsService.getInstance().getDescribeInstanceService(aws).getFirstInstance(new Tag(Constants.TAG_KEY, vmId));
+		Instance instance = AwsService.getInstance().getDescribeInstanceService(aws).getFirstSignificantInstance(new Tag(Constants.TAG_KEY, vmId));
 		
 		if (instance != null) {
 			logger.info("Terminating instance on Amazon ...");

@@ -1,7 +1,6 @@
 package com.chavaillaz.awsec2utils.api.implementation.arc.service;
 
 import java.io.File;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -20,6 +19,7 @@ import com.chavaillaz.awsec2utils.api.implementation.common.AuthService_A;
 import com.chavaillaz.awsec2utils.api.model.VmTemplate;
 import com.chavaillaz.awsec2utils.api.specification.arc.service.ListService_I;
 import com.chavaillaz.awsec2utils.api.specification.aws.service.TagInstanceService_I;
+import com.chavaillaz.awsec2utils.utils.VmState;
 
 /**
  * Implementation of {@link ListService_I}
@@ -58,7 +58,13 @@ public class ListService extends AuthService_A implements ListService_I {
 		TagInstanceService_I tagInstanceService = AwsService.getInstance().getTagInstanceService(aws);
 		for (Instance instance:listInstance) {
 			Tag tag = tagInstanceService.getTag(Constants.TAG_KEY, instance.getTags());
-			mapInstance.put(tag.getValue(), instance);
+			if (mapInstance.containsKey(tag.getValue())) {
+				if (VmState.getSignificantNumber(instance) < VmState.getSignificantNumber(mapInstance.get(tag.getValue()))) {
+					mapInstance.put(tag.getValue(), instance);
+				}
+			} else {
+				mapInstance.put(tag.getValue(), instance);
+			}
 		}
 		
 		for (VmTemplate template:listTemplate) {

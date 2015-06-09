@@ -2,10 +2,12 @@
 <Configuration status="WARN">
 	<Appenders>
 		<Console name="Console" target="SYSTEM_OUT">
+			<!-- Pattern used to show message in console -->
 			<PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%c{1}] %msg%n" />
 		</Console>
 	</Appenders>
 	<Loggers>
+		<!-- Root level can be changed to "warn" or "error" to only show this type of message -->
 		<Root level="info">
 			<AppenderRef ref="Console" />
 		</Root>

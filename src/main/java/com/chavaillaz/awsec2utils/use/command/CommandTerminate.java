@@ -15,6 +15,7 @@ public class CommandTerminate extends CommandAuth {
 
 	public static final String KEY = "kill";
 	public static final String HELP = Constants.PREFIX + KEY + " vmId";
+	public static String HELP_DETAIL = "Terminate a VM.";
 	
 	private String vmId;
 

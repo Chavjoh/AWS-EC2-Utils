@@ -22,19 +22,22 @@ public class Configuration {
 	public static final String ACCESS_KEY = "accessKey";
 	public static final String PRIVATE_ACCESS_KEY = "secretAccessKey";
 	public static final String CONFIG_FILE = "config" + Constants.PROPERTIES_EXTENSION;
+	public static final String GROUP_KEY = "group";
 
 	private Properties properties;
 	private String accessKey;
 	private String secretAccessKey;
 	private String keyPairPath;
+	private String group;
 	
-	public Configuration(String accessKey, String secretAccessKey, String keyPairPath) {
+	public Configuration(String accessKey, String secretAccessKey, String keyPairPath, String group) {
 		super();
 		
 		this.properties = new Properties();
 		this.accessKey = accessKey;
 		this.secretAccessKey = secretAccessKey;
 		this.keyPairPath = keyPairPath;
+		this.group = group;
 	}
 
 	/**
@@ -53,10 +56,11 @@ public class Configuration {
 		String accessKey = properties.getProperty(ACCESS_KEY);
 		String privateAccessKey = properties.getProperty(PRIVATE_ACCESS_KEY);
 		String keyPairName = properties.getProperty(KEYPAIR_PATH_KEY);
+		String group = properties.getProperty(GROUP_KEY);
 
 		input.close();
 		
-		return new Configuration(accessKey, privateAccessKey, keyPairName);
+		return new Configuration(accessKey, privateAccessKey, keyPairName, group);
 	}
 	
 	/**
@@ -69,6 +73,7 @@ public class Configuration {
 		properties.setProperty(ACCESS_KEY, accessKey);
 		properties.setProperty(PRIVATE_ACCESS_KEY, secretAccessKey);
 		properties.setProperty(KEYPAIR_PATH_KEY, keyPairPath);
+		properties.setProperty(GROUP_KEY, group);
 		properties.store(output, null);
 		output.close();
 	}
@@ -99,6 +104,14 @@ public class Configuration {
 	
 	public String getKeyPairName() {
 		return FilenameUtils.getBaseName(getKeyPairPath());
+	}
+	
+	public void setGroup(String group) {
+		this.group = group;
+	}
+	
+	public String getGroup() {
+		return this.group;
 	}
 	
 }

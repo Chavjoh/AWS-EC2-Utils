@@ -17,6 +17,7 @@ public class CommandListStopped extends CommandAuth {
 	
 	public static final String KEY = "liststopped";
 	public static final String HELP = Constants.PREFIX + KEY;
+	public static String HELP_DETAIL = "Show list of all VM templates with stopped state.";
 
 	public CommandListStopped(List<String> parameters) throws CommandParametersException {
 		super(parameters);

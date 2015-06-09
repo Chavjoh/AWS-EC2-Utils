@@ -17,6 +17,7 @@ public class CommandListRunning extends CommandAuth {
 
 	public static final String KEY = "listrunning";
 	public static final String HELP = Constants.PREFIX + KEY;
+	public static String HELP_DETAIL = "Show list of all VM templates with running state.";
 
 	public CommandListRunning(List<String> parameters) throws CommandParametersException {
 		super(parameters);

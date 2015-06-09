@@ -15,6 +15,7 @@ public class CommandPurge extends CommandAuth {
 	
 	public static final String KEY = "purge";
 	public static final String HELP = Constants.PREFIX + KEY;
+	public static String HELP_DETAIL = "Delete VM template and terminate the corresponding instance on Amazon.";
 	
 	private String vmId;
 

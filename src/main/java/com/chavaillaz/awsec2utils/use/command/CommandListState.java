@@ -18,6 +18,7 @@ public class CommandListState extends CommandAuth {
 
 	public static final String KEY = "liststate";
 	public static final String HELP = Constants.PREFIX + KEY;
+	public static String HELP_DETAIL = "Show list of all VM templates with state for each.";
 	
 	public CommandListState(List<String> parameters) throws CommandParametersException {
 		super(parameters);

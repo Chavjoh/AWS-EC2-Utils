@@ -15,6 +15,7 @@ public class CommandDefine extends CommandAuth {
 	
 	public static final String KEY = "define";
 	public static String HELP = Constants.PREFIX + KEY + " vmId imageId instanceType [securityGroup]";
+	public static String HELP_DETAIL = "Define a template file to manage a virtual machine (VM). Create if necessary the security group.";
 	
 	private String vmId;
 	private String imageId;

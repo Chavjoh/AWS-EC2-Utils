@@ -15,6 +15,7 @@ public class CommandTerminateAll extends CommandAuth {
 	
 	public static final String KEY = "killall";
 	public static final String HELP = Constants.PREFIX + KEY;
+	public static String HELP_DETAIL = "Terminate all VM.";
 	
 	public CommandTerminateAll(List<String> parameters) throws CommandParametersException {
 		super(parameters);

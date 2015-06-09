@@ -24,6 +24,11 @@ abstract public class Command_A {
 	public static String HELP;
 	
 	/**
+	 * Detailed help of the command
+	 */
+	public static String HELP_DETAIL;
+	
+	/**
 	 * Create the commands with the given parameters.
 	 * 
 	 * @param parameters Parameters used to configure the command

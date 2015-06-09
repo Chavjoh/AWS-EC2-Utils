@@ -15,6 +15,7 @@ public class CommandStopAll extends CommandAuth {
 
 	public static final String KEY = "stop";
 	public static final String HELP = Constants.PREFIX + KEY;
+	public static String HELP_DETAIL = "Stop all VM.";
 
 	public CommandStopAll(List<String> parameters) throws CommandParametersException {
 		super(parameters);

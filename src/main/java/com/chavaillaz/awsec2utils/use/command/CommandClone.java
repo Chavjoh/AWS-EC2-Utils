@@ -15,6 +15,7 @@ public class CommandClone extends Command_A {
 	
 	public static final String KEY = "clone";
 	public static String HELP = Constants.PREFIX + KEY + " newVmId vmId";
+	public static String HELP_DETAIL = "Clone a VM Template file.";
 	
 	private String newVmId;
 	private String vmId;

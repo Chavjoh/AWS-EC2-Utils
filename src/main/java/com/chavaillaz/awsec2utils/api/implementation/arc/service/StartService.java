@@ -75,7 +75,7 @@ public class StartService extends AuthService_A implements StartService_I {
 			logger.info("Tagging instance ...");
 			TagInstanceService_I tagInstanceService = AwsService.getInstance().getTagInstanceService(aws);
 			// Used to manage all instances created by this tool
-			tagInstanceService.tagInstance(listInstance, new Tag(Constants.TAG_GROUP_KEY, Constants.TAG_GROUP_DEFAULT));
+			tagInstanceService.tagInstance(listInstance, new Tag(Constants.TAG_GROUP_KEY, configuration.getGroup()));
 			// Used to manage the current instance in particular
 			tagInstanceService.tagInstance(listInstance, new Tag(Constants.TAG_KEY, vmId));
 			

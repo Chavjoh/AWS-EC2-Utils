@@ -17,6 +17,7 @@ public class CommandRun extends CommandAuth {
 	
 	public static final String KEY = "run";
 	public static final String HELP = Constants.PREFIX + KEY + " vmId source destination [username]";
+	public static String HELP_DETAIL = "Transfer and launch a program or all program in a directory on the selected instance. To be executed files must have SH or RUN extension.";
 	
 	private String vmId;
 	private String source;

@@ -16,6 +16,7 @@ public class CommandList extends CommandAuth {
 	
 	public static final String KEY = "list";
 	public static String HELP = Constants.PREFIX + KEY;
+	public static String HELP_DETAIL = "Show list of all VM templates.";
 
 	public CommandList(List<String> parameters) throws CommandParametersException {
 		super(parameters);

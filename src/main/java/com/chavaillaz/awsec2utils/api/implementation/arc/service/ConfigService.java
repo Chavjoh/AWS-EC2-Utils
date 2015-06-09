@@ -30,8 +30,8 @@ public class ConfigService extends AuthService_A implements ConfigService_I {
 
 	public void config(String accessKey, String secretAccessKey) throws IOException {
 		logger.info("Creating a new KeyPair");
-		UUID uniqueId = UUID.randomUUID();
-		String keyPairName = Constants.KEY_PAIR_PREFIX + uniqueId;
+		String group = UUID.randomUUID().toString();
+		String keyPairName = Constants.KEY_PAIR_PREFIX + UUID.randomUUID();
 		String keyPairPath = keyPairName + Constants.KEY_PAIR_EXTENSION;
 		
 		KeyPair keyPair = AwsService.getInstance().getKeyPairService(aws).createKeyPair(keyPairName);
@@ -40,7 +40,7 @@ public class ConfigService extends AuthService_A implements ConfigService_I {
 		out.close();
 		
 		logger.info("Saving configuration");
-		Configuration configuration = new Configuration(accessKey, secretAccessKey, keyPairPath);
+		Configuration configuration = new Configuration(accessKey, secretAccessKey, keyPairPath, group);
 		configuration.save();
 	}
 

@@ -11,6 +11,7 @@ import com.amazonaws.services.ec2.model.Instance;
 import com.amazonaws.services.ec2.model.Reservation;
 import com.chavaillaz.awsec2utils.Constants;
 import com.chavaillaz.awsec2utils.api.implementation.common.AuthService_A;
+import com.chavaillaz.awsec2utils.api.model.Configuration;
 import com.chavaillaz.awsec2utils.api.specification.aws.service.ListInstanceService_I;
 
 /**
@@ -24,11 +25,11 @@ public class ListInstanceService extends AuthService_A implements ListInstanceSe
 		super(aws);
 	}
 
-	public List<Instance> getListInstance() {
+	public List<Instance> getListInstance() throws Exception {
 		DescribeInstancesRequest request = new DescribeInstancesRequest();
 
 		List<String> tagValue = new ArrayList<String>();
-		tagValue.add(Constants.TAG_GROUP_DEFAULT);
+		tagValue.add(Configuration.getConfiguration().getGroup());
 		Filter filter = new Filter("tag:" + Constants.TAG_GROUP_KEY, tagValue);
 
 		DescribeInstancesResult result = aws.describeInstances(request.withFilters(filter));

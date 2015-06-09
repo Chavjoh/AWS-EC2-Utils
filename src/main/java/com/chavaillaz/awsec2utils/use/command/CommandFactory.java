@@ -2,7 +2,7 @@ package com.chavaillaz.awsec2utils.use.command;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,7 +18,7 @@ public class CommandFactory {
 	private static CommandFactory instance;
 	
 	private CommandFactory() {
-		listCommand = new HashMap<String, Class<? extends Command_A>>();
+		listCommand = new LinkedHashMap<String, Class<? extends Command_A>>();
 		registerAllCommands();
 	}
 	

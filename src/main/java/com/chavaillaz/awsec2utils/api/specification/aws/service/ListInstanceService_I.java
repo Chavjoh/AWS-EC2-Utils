@@ -10,12 +10,13 @@ import com.amazonaws.services.ec2.model.Instance;
  * @author Johan Chavaillaz
  */
 public interface ListInstanceService_I {
-
+	
 	/**
 	 * Get all instances on Amazon EC2.
 	 * 
 	 * @return List of all instances
+	 * @throws Exception
 	 */
-	public List<Instance> getListInstance();
+	public List<Instance> getListInstance() throws Exception;
 	
 }

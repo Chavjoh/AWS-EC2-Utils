@@ -10,6 +10,8 @@ public class StringShop {
 	public static final String EMPTY = "";
 	public static final String SPACE = " ";
 	public static final String DASH = "-";
+	public static final String SLASH = "/";
+	public static final String AT = "@";
 
 	public static final String CR = "\r";
 	public static final String LF = "\n";

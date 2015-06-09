@@ -15,6 +15,7 @@ public class CommandSend extends CommandAuth {
 	
 	public static final String KEY = "send";
 	public static final String HELP = Constants.PREFIX + KEY + " vmId source destination [username]";
+	public static String HELP_DETAIL = "Transfer a file or a folder on the selected instance.";
 	
 	private String vmId;
 	private String source;

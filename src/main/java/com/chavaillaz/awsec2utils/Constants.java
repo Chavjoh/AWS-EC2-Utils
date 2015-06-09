@@ -23,6 +23,5 @@ public class Constants {
 	
 	public static final String TAG_KEY = "AWS-EC2-Utils-Key";
 	public static final String TAG_GROUP_KEY = "AWS-EC2-Utils-Group";
-	public static final String TAG_GROUP_DEFAULT = "AWS-EC2-Utils";
 
 }

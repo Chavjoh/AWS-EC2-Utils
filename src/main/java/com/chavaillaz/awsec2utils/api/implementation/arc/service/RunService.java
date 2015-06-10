@@ -57,7 +57,8 @@ public class RunService extends AuthService_A implements RunService_I {
 				for (final File fileEntry : file.listFiles()) {
 					String extension = FilenameUtils.getExtension(fileEntry.getName());
 					if (extension.equals(SH) || extension.equals(RUN)) {
-						String fileDestination = destination + File.separator + fileEntry.getName();
+						logger.info("Running " + fileEntry.getName());
+						String fileDestination = destination + File.separator + source + File.separator + fileEntry.getName();
 						runCommand(ssh, CHMOD + fileDestination);
 						runCommand(ssh, fileDestination);
 					}
@@ -85,8 +86,9 @@ public class RunService extends AuthService_A implements RunService_I {
 		
 		try {
 			final Command cmd = session.exec(command);
-			System.out.println(IOUtils.readFully(cmd.getInputStream()).toString());
 			cmd.join(30, TimeUnit.SECONDS);
+			System.out.println(IOUtils.readFully(cmd.getInputStream()).toString());
+			System.out.println(IOUtils.readFully(cmd.getErrorStream()).toString());
 		} finally {
 			session.close();
 		}

@@ -104,7 +104,14 @@ public class VmTemplate {
 	 * @throws IOException
 	 */
 	public void save() throws IOException {
-		OutputStream output = new FileOutputStream(getPath());
+		File path = new File(getPath());
+		File parent = path.getParentFile();
+		
+		if (!parent.exists() && !parent.mkdirs()){
+		    throw new IllegalStateException("Couldn't create template directory " + parent);
+		}
+		
+		OutputStream output = new FileOutputStream(path.getAbsolutePath());
 		properties.setProperty(VM_KEY, vmId);
 		properties.setProperty(IMAGE_KEY, imageId);
 		properties.setProperty(INSTANCE_TYPE_KEY, instanceType);

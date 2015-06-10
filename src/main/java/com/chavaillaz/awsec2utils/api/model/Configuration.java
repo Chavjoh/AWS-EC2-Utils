@@ -20,7 +20,7 @@ public class Configuration {
 
 	public static final String KEYPAIR_PATH_KEY = "keyPairPath";
 	public static final String ACCESS_KEY = "accessKey";
-	public static final String PRIVATE_ACCESS_KEY = "secretAccessKey";
+	public static final String SECRET_ACCESS_KEY = "secretAccessKey";
 	public static final String CONFIG_FILE = "config" + Constants.PROPERTIES_EXTENSION;
 	public static final String GROUP_KEY = "group";
 
@@ -54,7 +54,7 @@ public class Configuration {
 		properties.load(input);
 
 		String accessKey = properties.getProperty(ACCESS_KEY);
-		String privateAccessKey = properties.getProperty(PRIVATE_ACCESS_KEY);
+		String privateAccessKey = properties.getProperty(SECRET_ACCESS_KEY);
 		String keyPairName = properties.getProperty(KEYPAIR_PATH_KEY);
 		String group = properties.getProperty(GROUP_KEY);
 
@@ -71,7 +71,7 @@ public class Configuration {
 	public void save() throws IOException {
 		OutputStream output = new FileOutputStream(CONFIG_FILE);
 		properties.setProperty(ACCESS_KEY, accessKey);
-		properties.setProperty(PRIVATE_ACCESS_KEY, secretAccessKey);
+		properties.setProperty(SECRET_ACCESS_KEY, secretAccessKey);
 		properties.setProperty(KEYPAIR_PATH_KEY, keyPairPath);
 		properties.setProperty(GROUP_KEY, group);
 		properties.store(output, null);

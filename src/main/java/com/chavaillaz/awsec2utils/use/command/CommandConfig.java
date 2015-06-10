@@ -18,7 +18,7 @@ import com.chavaillaz.awsec2utils.use.exception.CommandParametersException;
 public class CommandConfig extends Command_A {
 	
 	public static final String KEY = "config";
-	public static String HELP = Constants.PREFIX + KEY + " aws_access_key aws_private_key";
+	public static String HELP = Constants.PREFIX + KEY + " awsAccessKey awsSecretAccessKey";
 	public static String HELP_DETAIL = "Save configuration to access to Amazon Web Services and create a KeyPair.";
 	
 	private AmazonEC2Client aws;
@@ -39,7 +39,7 @@ public class CommandConfig extends Command_A {
 	
 	@Override
 	public void run() throws IOException {
-		ArcService.getInstance().getConfigService(aws).config(secretAccessKey, secretAccessKey);
+		ArcService.getInstance().getConfigService(aws).config(accessKey, secretAccessKey);
 	}
 
 	/**

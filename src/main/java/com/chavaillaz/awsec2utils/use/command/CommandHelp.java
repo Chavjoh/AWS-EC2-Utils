@@ -64,8 +64,8 @@ public class CommandHelp extends Command_A {
 			System.out.println();
 			System.out.println("VM state :");
 			System.out.println("==========");
-			System.out.println("VM Template -(START)-> Running -----(STOP)-----> Stopped ---(KILL)---> VM Template\r\n");
-			System.out.println("Free ----------------> Paying (VM + Storage) --> Paying (Storage) ---> Free\r\n");
+			System.out.println("VM Template -(START)-> Running -----(STOP)-----> Stopped ---(KILL)---> VM Template");
+			System.out.println("Free ----------------> Paying (VM + Storage) --> Paying (Storage) ---> Free");
 			System.out.println("                       Expensive                 Cheaper");
 			System.out.println();
 		}

@@ -103,7 +103,6 @@ public class CommandSsh extends CommandAuth {
 	}
 
 	public void launchMacSsh() throws IOException {
-		
 		String scriptPath = Constants.VM_FOLDER + vmId + ".sh";
 		//String fullCommand = "osascript -e 'tell application \"Terminal\" to do script \"" + getSshCommand() + "\"'";
 		String fullCommand = getSshCommand();
@@ -127,9 +126,11 @@ public class CommandSsh extends CommandAuth {
 		File currentDirectory = new File(new File(".").getAbsolutePath());
 		StringBuilder command = new StringBuilder();
 		command.append(SSH_COMMAND);
+		command.append(StringShop.APOSTROPHE);
 		command.append(currentDirectory.getCanonicalPath());
 		command.append(StringShop.SLASH);
 		command.append(Configuration.getConfiguration().getKeyPairPath());
+		command.append(StringShop.APOSTROPHE);
 		command.append(StringShop.SPACE);
 		command.append(username);
 		command.append(StringShop.AT);

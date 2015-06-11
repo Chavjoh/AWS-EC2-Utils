@@ -12,6 +12,8 @@ public class StringShop {
 	public static final String DASH = "-";
 	public static final String SLASH = "/";
 	public static final String AT = "@";
+	public static final String APOSTROPHE = "'";
+	public static final String DOT = ".";
 
 	public static final String CR = "\r";
 	public static final String LF = "\n";

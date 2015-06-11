@@ -19,6 +19,7 @@ import com.chavaillaz.awsec2utils.api.implementation.common.AuthService_A;
 import com.chavaillaz.awsec2utils.api.model.VmTemplate;
 import com.chavaillaz.awsec2utils.api.specification.arc.service.ListService_I;
 import com.chavaillaz.awsec2utils.api.specification.aws.service.TagInstanceService_I;
+import com.chavaillaz.awsec2utils.utils.StringShop;
 import com.chavaillaz.awsec2utils.utils.VmState;
 
 /**
@@ -41,8 +42,10 @@ public class ListService extends AuthService_A implements ListService_I {
 		File folder = new File(Constants.VM_FOLDER);
 		if (folder.exists() && folder.isDirectory()) {
 			for (File fileEntry : folder.listFiles()) {
-				String vmId = FilenameUtils.getBaseName(fileEntry.getPath());
-				listTemplate.add(VmTemplate.getTemplate(vmId));
+				if (FilenameUtils.getExtension(fileEntry.getPath()).equals(Constants.VM_EXTENSION.replace(StringShop.DOT, StringShop.EMPTY))) {
+					String vmId = FilenameUtils.getBaseName(fileEntry.getPath());
+					listTemplate.add(VmTemplate.getTemplate(vmId));
+				}
 			}
 		}
 		
